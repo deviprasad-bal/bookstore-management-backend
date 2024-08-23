@@ -42,7 +42,8 @@ This is the backend for bookstore application, built with Spring Boot and Spring
     Update the application.properties file located in src/main/resources with your MySQL database details:
 
 
-    ```spring.datasource.url = jdbc:mysql://localhost:3306/bookstore
+    ```
+    spring.datasource.url = jdbc:mysql://localhost:3306/bookstore
     spring.datasource.username = your-username
     spring.datasource.password = your-password
     spring.datasource.driver-class-name =com.mysql.cj.jdbc.Driver
