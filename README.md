@@ -62,7 +62,7 @@ This is the backend for bookstore application, built with Spring Boot and Spring
 
     The application will start and be accessible at http://localhost:8080.
 
-    4. **Test On POSTMAN**
+4. **Test On POSTMAN**
     Use tools like Postman to test the APIs.
     Ex: http://localhost:8080/bookstore/books
 
