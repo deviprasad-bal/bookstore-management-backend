@@ -34,7 +34,7 @@ This is the backend for bookstore application, built with Spring Boot and Spring
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/deviprasad-bal/bookstore-management-backend.git
-   cd demo\ 4
+   cd bookstore-management-backend
    ```
 
 2. **Set Up the Database**:
