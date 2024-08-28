@@ -5,6 +5,7 @@ import com.devi.bookstore.model.Books;
 import com.devi.bookstore.model.Editions;
 import com.devi.bookstore.service.interfaces.EditionsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,9 +26,8 @@ public class EditionsServiceImpl implements EditionsService {
 
     @Transactional
     @Override
+    @Cacheable(value = "editions", key = "#book.id + '-' + #editionNo")
     public Optional<Editions> getEditionsByBookAndEditionNo(Books book, int editionNo) {
         return editionsDAO.getEditionsByBookAndEditionNo(book, editionNo);
     }
-
-
 }
