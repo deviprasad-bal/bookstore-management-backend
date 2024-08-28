@@ -5,7 +5,6 @@ import com.devi.bookstore.model.Inventory;
 import com.devi.bookstore.repository.InventoryRepository;
 import com.devi.bookstore.service.interfaces.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
