@@ -7,6 +7,9 @@ import com.devi.bookstore.model.Books;
 import com.devi.bookstore.repository.BookRepository;
 import com.devi.bookstore.service.interfaces.AuthorsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,12 +31,14 @@ public class AuthorsServiceImpl implements AuthorsService {
     }
 
     @Override
+    @Cacheable(value = "authors", key = "#id")
     public Authors get(int id) {
         return authorsdao.get(id);
     }
 
     @Transactional
     @Override
+    @CachePut(value = "authors", key = "#result.id")
     public Authors saveAuthor(AddAuthorDTO addAuthorDTO) {
         return authorsdao.saveAuthor(addAuthorDTO);
     }
@@ -45,6 +50,7 @@ public class AuthorsServiceImpl implements AuthorsService {
     }
 
     @Override
+    @Cacheable(value = "authors", key = "#firstname + '-' + #lastname")
     public Authors getAuthorsByFirstNameAndLastName(String firstname, String lastname) {
         return authorsdao.getAuthorsByFirstNameAndLastName(firstname, lastname);
     }
